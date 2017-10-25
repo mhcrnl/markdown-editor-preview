@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+<?import org.fxmisc.richtext.CodeArea?>
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+  prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/application.css" type="StackPane"
+  xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+  style="-fx-background-color: rgb(0,0,0,0);">
+  <children>
+    <BorderPane
+      style="-fx-background-color: rgb(225,225,225,1);-fx-background-radius: 5;">
+      <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="600.0" spacing="8.0"
+          BorderPane.alignment="CENTER"
+          onMouseClicked="#toogleMaximized" onMouseDragged="#dragWindow"
+          onMousePressed="#recordPosition">
+          <children>
+            <Region prefWidth="4"></Region>
+            <JFXButton styleClass="toolbar-close" onAction="#exit"></JFXButton>
+            <JFXButton styleClass="toolbar-minimize" onAction="#minimize"></JFXButton>
+            <JFXButton styleClass="toolbar-restore" onAction="#restore"></JFXButton>
+          </children>
+        </HBox>
+      </top>
+      <center>
+        <SplitPane>
+          <items>
+            <BorderPane>
+              <center>
+                <CodeArea fx:id="editor" maxHeight="1.7976931348623157E308"
+                  maxWidth="1.7976931348623157E308"
+                  prefHeight="70.0" prefWidth="120.0" BorderPane.alignment="CENTER" wrapText="true"
+                  onKeyReleased="#preview">
+                </CodeArea>
+              </center>
+            </BorderPane>
+            <BorderPane>
+              <center>
+                <WebView fx:id="webview" prefHeight="360.0" prefWidth="399.0"
+                  BorderPane.alignment="CENTER"/>
+              </center>
+            </BorderPane>
+          </items>
+        </SplitPane>
+      </center>
+      <bottom>
+        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="600.0" spacing="8.0"
+          BorderPane.alignment="CENTER">
+          <children>
+            <Text>Hello, JavaFX Markdown Editor!</Text>
+          </children>
+        </HBox>
+      </bottom>
+    </BorderPane>
+  </children>
+</fx:root>
