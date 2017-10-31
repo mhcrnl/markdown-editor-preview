@@ -1,0 +1,8 @@
+target/
+.idea
+.settings
+
+src/main/main.iml
+.classpath
+.project
+deque-markdown-editor.iml
